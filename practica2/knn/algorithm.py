@@ -1,32 +1,40 @@
-from knn.euclideanDistance import euclideanDistance
+from knn.euclideanDistance import euclideanDistance, euclideanDistanceVec
 from typing import Callable
+import numpy as np
+import pandas as pd
 
 class Knn:
-    trainData: list[tuple]
-    trainClass: list
+    trainData: np.ndarray
+    trainClass: np.ndarray
     k: int
 
-    def __init__(self, trainData: list[tuple], trainClass: list, k) -> None:
-        self.trainData = trainData
-        self.trainClass = trainClass
+    def __init__(self, k: int) -> None:
         self.k = k
+        # self.trainData = trainData
+        # self.trainClass = trainClass
+        # self.k = k
 
-    def clasify(self, instance: tuple, distanceFunc: Callable[[tuple[float], tuple[float]], float]=euclideanDistance):
-        distances: list[tuple[int, float]] = [(i, 0.0) for i in range(len(self.trainData))]
-
-        for i in range(len(self.trainData)):
-            distances[i] = (i, distanceFunc(self.trainData[i], instance))
+    def fit(self, xTrain: pd.DataFrame, yTrain: pd.DataFrame) -> None:
+        self.trainData = xTrain.to_numpy()
+        self.trainClass = yTrain.to_numpy()
         
-        distances.sort(key=lambda x: x[1])
+    def pred(self, xTest: pd.DataFrame):
+        test = xTest.to_numpy()
+        return np.array([self.predSingle(i) for i in test])
 
+    def predSingle(self, single: np.ndarray):
+        size = self.trainData.shape[0]
+        distances = np.apply_along_axis(euclideanDistanceVec, 1, self.trainData, single)
+        distances = np.stack((np.arange(size), distances)).transpose()
+        distances = distances[distances[:, 1].argsort()] # Esto ordena el array según la segunda columna (la distancia)
+        
         classes: dict = {}
-        for c in tuple(self.trainClass):
+        for c in np.unique(self.trainClass):
             classes[c] = 0
 
         elements = distances[:self.k]
-
         for e in elements:
-            classes[self.trainClass[e[0]]] += 1
+            classes[self.trainClass[int(e[0])][0]] += 1
 
         higher = (-1, -1)
         c = list(classes.items())
@@ -35,3 +43,5 @@ class Knn:
                 higher = i
 
         return higher[0]
+
+    
