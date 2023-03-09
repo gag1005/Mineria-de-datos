@@ -9,4 +9,6 @@ def euclideanDistance(a: tuple, b: tuple) -> float:
     return sqrt(total)
 
 def euclideanDistanceVec(a: np.ndarray, b: np.ndarray):
-    return np.sqrt(np.sum(np.square(np.subtract(b, a))))
+    # return np.sqrt(np.sum(np.square(a - b)))
+    # Esto es aquivalente a la línea anterior pero 3 veces mas rápido
+    return np.linalg.norm(a - b)

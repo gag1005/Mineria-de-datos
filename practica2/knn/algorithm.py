@@ -10,9 +10,6 @@ class Knn:
 
     def __init__(self, k: int) -> None:
         self.k = k
-        # self.trainData = trainData
-        # self.trainClass = trainClass
-        # self.k = k
 
     def fit(self, xTrain: pd.DataFrame, yTrain: pd.DataFrame) -> None:
         self.trainData = xTrain.to_numpy()
@@ -28,11 +25,14 @@ class Knn:
         distances = np.stack((np.arange(size), distances)).transpose()
         distances = distances[distances[:, 1].argsort()] # Esto ordena el array según la segunda columna (la distancia)
         
+
         classes: dict = {}
+
         for c in np.unique(self.trainClass):
             classes[c] = 0
 
         elements = distances[:self.k]
+
         for e in elements:
             classes[self.trainClass[int(e[0])][0]] += 1
 
@@ -43,5 +43,18 @@ class Knn:
                 higher = i
 
         return higher[0]
+    
+    def precision(self, predicted: np.ndarray, real: pd.DataFrame, classes: np.ndarray) -> np.ndarray:
+        real = real.to_numpy().transpose()
+        # precision = np.sum(np.equal(predicted, real)) / predicted.shape[0]
+        numClasses = len(classes)
+        confusionMatrix = np.zeros((numClasses, numClasses))
+
+        for i in range(numClasses):
+            for j in range(numClasses):
+                confusionMatrix[i][j] = np.sum(np.logical_and((predicted == classes[i]), (real == classes[j])))
+
+        
+        return confusionMatrix
 
     
