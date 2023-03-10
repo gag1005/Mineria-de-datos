@@ -44,9 +44,11 @@ class Knn:
 
         return higher[0]
     
-    def precision(self, predicted: np.ndarray, real: pd.DataFrame, classes: np.ndarray) -> np.ndarray:
+    def precision(self, predicted: np.ndarray, real: pd.DataFrame, classes: np.ndarray) -> (int, np.ndarray):
         real = real.to_numpy().transpose()
-        # precision = np.sum(np.equal(predicted, real)) / predicted.shape[0]
+        
+        precision = np.sum(np.equal(predicted, real)) / predicted.shape[0]
+        
         numClasses = len(classes)
         confusionMatrix = np.zeros((numClasses, numClasses))
 
@@ -54,7 +56,8 @@ class Knn:
             for j in range(numClasses):
                 confusionMatrix[i][j] = np.sum(np.logical_and((predicted == classes[i]), (real == classes[j])))
 
-        
-        return confusionMatrix
+        confusionMatrix = np.concatenate((np.array([classes]).transpose(), confusionMatrix), axis=1)
+
+        return (precision, confusionMatrix)
 
     
