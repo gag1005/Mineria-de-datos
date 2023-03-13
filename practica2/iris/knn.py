@@ -1,5 +1,6 @@
 # from myknn import euclideanDistanceVec
 import numpy as np
+import pandas as pd
 
 def knn_distancias(xTrain,xTest,k):
     """
@@ -16,25 +17,17 @@ def knn_distancias(xTrain,xTest,k):
     #the following formula calculates the Euclidean distances.
 
     #returning the top-k closest distances.
-    dists = np.array()
-    inds = np.array()
-    for ind in xTest:
-        d, i = knn_distancias_single(xTrain, ind, k)
 
-        # distst = np.concatenate(, axis=1)
-    results = [knn_distancias_single(xTrain, ind, k) for ind in xTest]
-    return np.concatenate(results, axis=1)
+    result = np.apply_along_axis(knn_distancias_single, 1, xTest, xTrain, k)
 
-    
+    return result[:,:,1], result[:,:,0]
 
-    
-
-def knn_distancias_single(xTrain, single, k):
+def knn_distancias_single(single, xTrain, k):
     size = xTrain.shape[0]
     distances = np.apply_along_axis(euclideanDistanceVec, 1, xTrain, single)
     distances = np.stack((np.arange(size), distances)).transpose()
-    distances = distances[distances[:, 1].argsort()] # Esto ordena el array según la segunda columna (la distancia)
-    return distances[1], distances[0]
+    distances = distances[distances[:, 1].argsort()][:k] # Esto ordena el array según la segunda columna (la distancia)
+    return distances
 
 
 def knn_predecir(xTrain,yTrain,xTest,k=3):
@@ -49,32 +42,15 @@ def knn_predecir(xTrain,yTrain,xTest,k=3):
     predicciones = etiquetas predichas, es decir, preds(i) es la etiqueta predicha de xTest(i,:)
 
     """
+    yTrain = yTrain.to_numpy()
+    dists, inds = knn_distancias(xTrain, xTest, k)
+    getTag = np.vectorize(lambda x: yTrain[int(x)][0])
+    tags = getTag(inds)
+    predicts = np.apply_along_axis(lambda x: pd.DataFrame(x).mode()[0][0], 1, tags)
+    # predicts = np.array([pd.DataFrame(x).mode()[0].to_numpy()[0] for x in tags])
+    return predicts.transpose()
 
-    predicciones = np.array([knn_pred_single(xTrain, yTrain, xTest, k, distances) for distances in knn_distancias(xTrain, xTest, k)])
-    
-  
-    return predicciones
-
-def knn_pred_single(xTrain, yTrain, xTest, k, distances):
-    classes: dict = {}
-
-    for c in np.unique(yTrain):
-        classes[c] = 0
-
-    elements = distances[:k]
-
-    for e in elements:
-        classes[yTrain[e[0]][0]] += 1
-
-    higher = (-1, -1)
-    c = list(classes.items())
-    for i in c:
-        if i[1] > higher[1]:
-            higher = i
-
-    return higher[0]
-
-def knn_precision(yTest,predictions):
+def knn_precision(yTest, predictions):
     """
     Evalúa la precisión del knn_predictions. Devuelve un valor entre 0 y 100%.
     Entrada:
@@ -84,6 +60,7 @@ def knn_precision(yTest,predictions):
     precisión = % de respuestas correctas en la predicción
     """
 
+    return np.sum(predictions == yTest.to_numpy().transpose()) / predictions.shape[0]
 
 def euclideanDistanceVec(a: np.ndarray, b: np.ndarray):
     # return np.sqrt(np.sum(np.square(a - b)))
