@@ -49,6 +49,8 @@ def knn_predecir(xTrain,yTrain,xTest,k=3):
     predicts = np.apply_along_axis(lambda x: pd.DataFrame(x).mode()[0][0], 1, tags)
     return predicts.transpose()
 
+    # return np.apply_along_axis(lambda x: pd.DataFrame(x).mode()[0][0], 1, np.vectorize(lambda x: yTrain.to_numpy()[int(x)][0])(knn_distancias(xTrain, xTest, k)[1])).transpose()
+
 def knn_precision(yTest, predictions):
     """
     Evalúa la precisión del knn_predictions. Devuelve un valor entre 0 y 100%.
