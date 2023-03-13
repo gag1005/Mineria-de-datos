@@ -47,7 +47,6 @@ def knn_predecir(xTrain,yTrain,xTest,k=3):
     getTag = np.vectorize(lambda x: yTrain[int(x)][0])
     tags = getTag(inds)
     predicts = np.apply_along_axis(lambda x: pd.DataFrame(x).mode()[0][0], 1, tags)
-    # predicts = np.array([pd.DataFrame(x).mode()[0].to_numpy()[0] for x in tags])
     return predicts.transpose()
 
 def knn_precision(yTest, predictions):
@@ -60,10 +59,9 @@ def knn_precision(yTest, predictions):
     precisión = % de respuestas correctas en la predicción
     """
 
-    return np.sum(predictions == yTest.to_numpy().transpose()) / predictions.shape[0]
+    return (np.sum(predictions == yTest.to_numpy().transpose()) / predictions.shape[0]) * 100
 
 def euclideanDistanceVec(a: np.ndarray, b: np.ndarray):
     # return np.sqrt(np.sum(np.square(a - b)))
     # Esto es aquivalente a la línea anterior pero 3 veces mas rápido
     return np.linalg.norm(a - b)
-
