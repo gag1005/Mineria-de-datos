@@ -1,4 +1,4 @@
-from knn.euclideanDistance import euclideanDistance, euclideanDistanceVec
+from myknn.euclideanDistance import euclideanDistance, euclideanDistanceVec
 from typing import Callable
 import numpy as np
 import pandas as pd
@@ -24,7 +24,6 @@ class Knn:
         distances = np.apply_along_axis(euclideanDistanceVec, 1, self.trainData, single)
         distances = np.stack((np.arange(size), distances)).transpose()
         distances = distances[distances[:, 1].argsort()] # Esto ordena el array según la segunda columna (la distancia)
-        
 
         classes: dict = {}
 
