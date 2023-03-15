@@ -48,7 +48,7 @@ def knn_predecir(xTrain,yTrain,xTest,k=3):
 
     """
     # Se convierte el DataFrame yTrain a un array de numpy
-    # yTrain = yTrain.to_numpy()
+    yTrain = yTrain.to_numpy()
     # Se calculan las distancias e índices de los puntos mas cercanos a cada punto de xTest
     # las distancias son innecesarias
     dists, inds = knn_distancias(xTrain, xTest, k)
