@@ -77,9 +77,3 @@ def euclideanDistanceVec(a: np.ndarray, b: np.ndarray):
     # return np.sqrt(np.sum(np.square(a - b)))
     # Esto es aquivalente a la línea anterior pero 3 veces mas rápido
     return np.linalg.norm(a - b)
-
-
-a:np.ndarray
-
-for i in range(len(a[0])):
-    col = a[:i]
