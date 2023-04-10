@@ -1,0 +1,100 @@
+"place","pop2023","growthRate","area","country","cca3","cca2","ccn3","region","subregion","landAreaKm","density","densityMi","Rank","availability","notes","rank"
+20,80088,0.00331,468,"Andorra","AND","AD",20,"Europe","Southern Europe",470,170.4,441.336,203,"Yes",,98
+32,45773884,0.00579,2780400,"Argentina","ARG","AR",32,"South America","South America, Latin America",2736690,16.726,43.3203,33,"Yes","Restricted",30
+51,2777970,-0.0009,29743,"Armenia","ARM","AM",51,"Asia","Western Asia",28470,97.5753,252.7201,140,"Partner","with Yandex Taxi",88
+36,26439111,0.01,7692024,"Australia","AUS","AU",36,"Oceania","Australia and New Zealand",7692020,3.4372,8.9024,55,"Yes","Banned in some areas",41
+40,8958960,0.00216,83871,"Austria","AUT","AT",40,"Europe","Western Europe",82520,108.5671,281.1889,100,"Yes",,65
+31,10412651,0.00527,86600,"Azerbaijan","AZE","AZ",31,"Asia","Western Asia",82646,125.991,326.3167,90,"Partner","with Yandex Taxi",58
+44,412623,0.00644,13943,"Bahamas","BHS","BS",44,"North America","Caribbean",10010,41.2211,106.7626,176,"Yes",,97
+48,1485509,0.00902,765,"Bahrain","BHR","BH",48,"Asia","Western Asia, The Middle East",785,1892.3682,4901.2335,154,"Affiliate","as Careem",92
+50,172954319,0.01033,147570,"Bangladesh","BGD","BD",50,"Asia","Southern Asia, South Central Asia",130170,1328.6803,3441.2821,8,"Yes",,8
+112,9498238,-0.00385,207600,"Belarus","BLR","BY",112,"Europe","Eastern Europe",202980,46.794,121.1964,97,"Partner","with Yandex Taxi",63
+56,11686140,0.00259,30528,"Belgium","BEL","BE",56,"Europe","Western Europe",30280,385.9359,999.5741,82,"Yes",,52
+68,12388571,0.01345,1098581,"Bolivia","BOL","BO",68,"South America","South America, Latin America",1083300,11.436,29.6191,80,"Yes",,51
+76,216422446,0.00515,8515767,"Brazil","BRA","BR",76,"South America","South America, Latin America",8358140,25.8936,67.0645,7,"Yes",,7
+100,6687717,-0.0139,110879,"Bulgaria","BGR","BG",100,"Europe","Eastern Europe",108560,61.6039,159.554,110,"No","Banned 2015",69
+116,16944826,0.01056,181035,"Cambodia","KHM","KH",116,"Asia","South-Eastern Asia",176520,95.9938,248.6239,73,"Partner","with Grab",50
+124,38781291,0.0085,9984670,"Canada","CAN","CA",124,"North America","Northern America",8965590,4.3256,11.2032,38,"Yes","Restricted in some areas",33
+152,19629590,0.00132,756102,"Chile","CHL","CL",152,"South America","South America, Latin America",743532,26.4005,68.3772,65,"Yes",,45
+156,1425671352,-0.00015,9706961,"China","CHN","CN",156,"Asia","Eastern Asia",9424702.9,151.2696,391.7884,2,"Partner","with Didi Chuxing",2
+170,52085168,0.00407,1141748,"Colombia","COL","CO",170,"South America","South America, Latin America",1109500,46.9447,121.5868,28,"Yes",,25
+188,5212173,0.00605,51100,"Costa Rica","CRI","CR",188,"North America","Central America, Latin America",51060,102.0794,264.3856,124,"Yes",,79
+191,4008617,-0.00539,56594,"Croatia","HRV","HR",191,"Europe","Southern Europe",55960,71.6336,185.5311,130,"Yes",,83
+203,10495295,0.00013,78865,"Czech Republic","CZE","CZ",203,"Europe","Eastern Europe",77198.5,135.9521,352.1158,89,"Yes",,57
+208,5910913,0.00487,43094,"Denmark","DNK","DK",208,"Europe","Northern Europe",40000,147.7728,382.7316,115,"No","Banned 2017",72
+214,11332972,0.00928,48671,"Dominican Republic","DOM","DO",214,"North America","Caribbean",48310,234.5885,607.5843,84,"Yes",,54
+218,18190484,0.01053,276841,"Ecuador","ECU","EC",218,"South America","South America, Latin America",248360,73.2424,189.6978,68,"Yes",,47
+818,112716598,0.01556,1002450,"Egypt","EGY","EG",818,"Africa","Northern Africa, The Middle East",995450,113.2318,293.2704,14,"Affiliate","as Careem",13
+222,6364943,0.00451,21041,"El Salvador","SLV","SV",222,"North America","Central America, Latin America",20720,307.1884,795.6179,112,"Yes",,70
+233,1322765,-0.00249,45227,"Estonia","EST","EE",233,"Europe","Northern Europe",42750,30.9419,80.1394,156,"Yes",,93
+246,5545475,0.00085,338424,"Finland","FIN","FI",246,"Europe","Northern Europe",303940,18.2453,47.2553,118,"Yes",,74
+250,64756584,0.00201,551695,"France","FRA","FR",250,"Europe","Western Europe",547557,118.2646,306.3052,23,"Yes","restricted",20
+268,3728282,-0.0043,69700,"Georgia","GEO","GE",268,"Asia","Western Asia",69490,53.6521,138.9588,132,"Partner","with Yandex Taxi",84
+276,83294633,-0.0009,357114,"Germany","DEU","DE",276,"Europe","Western Europe",349390,238.4002,617.4564,19,"Yes","Restricted in some areas",16
+288,34121985,0.0193,238533,"Ghana","GHA","GH",288,"Africa","Western Africa, Sub-Saharan Africa",227533,149.965,388.4093,47,"Yes",,39
+300,10341277,-0.00421,131990,"Greece","GRC","GR",300,"Europe","Southern Europe",128900,80.2271,207.7883,91,"Yes",,59
+320,18092026,0.01391,108889,"Guatemala","GTM","GT",320,"North America","Central America, Latin America",107160,168.8319,437.2746,70,"Yes",,48
+340,10593798,0.01543,112492,"Honduras","HND","HN",340,"North America","Central America, Latin America",111890,94.6805,245.2224,88,"Yes",,56
+344,7491609,0.00037,1104,"Hong Kong","HKG","HK",344,"Asia","Eastern Asia",1050,7134.8657,18479.3022,104,"Yes","Formerly banned",67
+348,10156239,0.01896,93028,"Hungary","HUN","HU",348,"Europe","Eastern Europe",91260,111.2891,288.2386,94,"No","Banned 2016",61
+356,1428627663,0.00808,3287590,"India","IND","IN",356,"Asia","Southern Asia, South Central Asia",2973190,480.5033,1244.5036,1,"Yes",,1
+360,277534122,0.00738,1904569,"Indonesia","IDN","ID",360,"Asia","South-Eastern Asia",1877519,147.8196,382.8528,4,"Partner","with Grab",4
+368,45504560,0.02266,438317,"Iraq","IRQ","IQ",368,"Asia","Western Asia, The Middle East",434128,104.8183,271.4794,35,"Affiliate","as Careem",31
+372,5056935,0.00673,70273,"Ireland","IRL","IE",372,"Europe","Northern Europe",68890,73.4059,190.1214,125,"Yes",,80
+376,9174520,0.01507,20770,"Israel","ISR","IL",376,"Asia","Western Asia, The Middle East",21640,423.9612,1098.0595,98,"Yes",,64
+380,58870762,-0.00282,301336,"Italy","ITA","IT",380,"Europe","Southern Europe",295717,199.078,515.6121,25,"Yes","Banned in some areas",22
+384,28873034,0.0253,322463,"Ivory Coast","CIV","CI",384,"Africa","Western Africa, Sub-Saharan Africa",318000,90.7957,235.1609,51,"Yes",,40
+388,2825544,-0.00065,10991,"Jamaica","JAM","JM",388,"North America","Caribbean",10830,260.8997,675.7303,139,"Yes",,87
+392,123294513,-0.0053,377930,"Japan","JPN","JP",392,"Asia","Eastern Asia",364500,338.2566,876.0845,12,"Yes","Restricted",11
+400,11337052,0.00454,89342,"Jordan","JOR","JO",400,"Asia","Western Asia, The Middle East",88794,127.6781,330.6864,83,"Affiliate","as Careem",53
+398,19606633,0.01076,2724900,"Kazakhstan","KAZ","KZ",398,"Asia","Central Asia",2699700,7.2625,18.8099,66,"Partner","with Yandex Taxi",46
+404,55100586,0.01986,580367,"Kenya","KEN","KE",404,"Africa","Eastern Africa, Sub-Saharan Africa",569140,96.8138,250.7477,26,"Yes",,23
+414,4310108,0.00966,17818,"Kuwait","KWT","KW",414,"Asia","Western Asia, The Middle East",17820,241.8691,626.4411,129,"Affiliate","as Careem",82
+422,5353930,-0.02474,10452,"Lebanon","LBN","LB",422,"Asia","Western Asia, The Middle East",10230,523.3558,1355.4916,122,"Affiliate","as Careem",77
+440,2718352,-0.01153,65300,"Lithuania","LTU","LT",440,"Europe","Northern Europe",62620,43.4103,112.4326,142,"Yes",,89
+442,654768,0.01107,2586,"Luxembourg","LUX","LU",442,"Europe","Western Europe",2574.5,254.3282,658.7101,168,"Yes",,95
+446,704149,0.01292,32.9,"Macau","MAC","MO",446,"Asia","Eastern Asia",32.9,21402.7052,55433.0064,167,"No","Suspended 2017",94
+458,34308525,0.01091,330803,"Malaysia","MYS","MY",458,"Asia","South-Eastern Asia",328550,104.4241,270.4583,46,"Partner","with Grab",38
+470,535064,0.00333,316,"Malta","MLT","MT",470,"Europe","Southern Europe",320,1672.075,4330.6743,173,"Yes",,96
+484,128455567,0.00746,1964375,"Mexico","MEX","MX",484,"North America","Central America, Latin America",1943950,66.0797,171.1463,10,"Yes",,10
+492,36297,-0.00472,2.02,"Monaco","MCO","MC",492,"Europe","Western Europe",2,18148.5,47004.615,217,"No",,99
+504,37840044,0.0102,446550,"Morocco","MAR","MA",504,"Africa","Northern Africa",446300,84.7861,219.596,39,"Affiliate","as Careem",34
+104,54577997,0.00736,676578,"Myanmar","MMR","MM",104,"Asia","South-Eastern Asia",652670,83.6227,216.5827,27,"Partner","with Grab",24
+528,17618299,0.00309,41850,"Netherlands","NLD","NL",528,"Europe","Western Europe",33670,523.264,1355.2538,72,"Yes","Partial ban",49
+554,5228100,0.00826,270467,"New Zealand","NZL","NZ",554,"Oceania","Australia and New Zealand",263310,19.8553,51.4252,123,"Yes",,78
+566,223804632,0.02408,923768,"Nigeria","NGA","NG",566,"Africa","Western Africa, Sub-Saharan Africa",910770,245.7312,636.4439,6,"Yes",,6
+578,5474360,0.00737,323802,"Norway","NOR","NO",578,"Europe","Northern Europe",364285,15.0277,38.9217,119,"Yes",,75
+586,240485658,0.01976,881912,"Pakistan","PAK","PK",586,"Asia","Southern Asia, South Central Asia",770880,311.9625,807.9829,5,"Affiliate","as Careem",5
+275,5371230,0.02308,6220,"Palestine","PSE","PS",275,"Asia","Western Asia, The Middle East",6020,892.2309,2310.878,121,"Affiliate","as Careem",76
+591,4468087,0.0135,75417,"Panama","PAN","PA",591,"North America","Central America, Latin America",74180,60.233,156.0036,128,"Yes",,81
+600,6861524,0.01191,406752,"Paraguay","PRY","PY",600,"South America","South America, Latin America",397300,17.2704,44.7303,108,"Yes",,68
+604,34352719,0.0089,1285216,"Peru","PER","PE",604,"South America","South America, Latin America",1280000,26.8381,69.5106,45,"Yes",,37
+608,117337368,0.01539,342353,"Philippines","PHL","PH",608,"Asia","South-Eastern Asia",298170,393.5251,1019.2299,13,"Partner","with Grab",12
+616,41026067,0.02933,312679,"Poland","POL","PL",616,"Europe","Eastern Europe",306130,134.0152,347.0993,37,"Yes",,32
+620,10247605,-0.00227,92090,"Portugal","PRT","PT",620,"Europe","Southern Europe",91605.6,111.8666,289.7344,93,"Yes",,60
+630,3260314,0.00243,8870,"Puerto Rico","PRI","PR",630,"North America","Caribbean",8870,367.5664,951.997,136,"Yes","Unavailable in some locations",86
+634,2716391,0.00789,11586,"Qatar","QAT","QA",634,"Asia","Western Asia, The Middle East",11490,236.4135,612.3109,143,"Affiliate","as Careem",90
+642,19892812,0.01188,238391,"Romania","ROU","RO",642,"Europe","Eastern Europe",230080,86.4604,223.9325,64,"Yes","Restricted in some areas",44
+643,144444359,-0.00186,17098242,"Russia","RUS","RU",643,"Europe","Eastern Europe",16376870,8.82,22.8439,9,"Partner","with Yandex Taxi",9
+682,36947025,0.01478,2149690,"Saudi Arabia","SAU","SA",682,"Asia","Western Asia, The Middle East",2149690,17.1871,44.5147,40,"Affiliate","as Careem",35
+702,6014723,0.00653,710,"Singapore","SGP","SG",702,"Asia","South-Eastern Asia",718,8377.0515,21696.5635,114,"Partner","with Grab",71
+703,5795199,0.02689,49037,"Slovakia","SVK","SK",703,"Europe","Eastern Europe",49035,118.1849,306.099,116,"Yes",,73
+710,60414495,0.00869,1221037,"South Africa","ZAF","ZA",710,"Africa","Southern Africa, Sub-Saharan Africa",1213090,49.8022,128.9876,24,"Yes",,21
+410,51784059,-0.00061,100210,"South Korea","KOR","KR",410,"Asia","Eastern Asia",97600,530.5744,1374.1876,29,"Yes","restricted",26
+724,47519628,-0.00082,505992,"Spain","ESP","ES",724,"Europe","Southern Europe",499556.6,95.1236,246.3702,32,"Yes","restricted",29
+144,21893579,0.00281,65610,"Sri Lanka","LKA","LK",144,"Asia","Southern Asia, South Central Asia",61860,353.9214,916.6565,61,"Yes",,43
+729,48109006,0.02634,1886068,"Sudan","SDN","SD",729,"Africa","Northern Africa",1868000,25.7543,66.7036,31,"Affiliate","as Careem",28
+752,10612086,0.00595,450295,"Sweden","SWE","SE",752,"Europe","Northern Europe",407283.5,26.0558,67.4844,87,"Yes",,55
+756,8796669,0.00643,41284,"Switzerland","CHE","CH",756,"Europe","Western Europe",39516,222.6103,576.5607,101,"Yes","restricted",66
+158,23923276,0.00125,36193,"Taiwan","TWN","TW",158,"Asia","Eastern Asia",36197,660.9188,1711.7796,57,"Yes",,42
+834,67438106,0.02963,945087,"Tanzania","TZA","TZ",834,"Africa","Eastern Africa, Sub-Saharan Africa",885800,76.1324,197.183,22,"Yes",,19
+764,71801279,0.00145,513120,"Thailand","THA","TH",764,"Asia","South-Eastern Asia",510890,140.5416,364.0026,20,"Partner","with Grab",17
+780,1534937,0.00254,5130,"Trinidad and Tobago","TTO","TT",780,"North America","Caribbean",5130,299.208,774.9487,153,"No","Withdrew 2018",91
+792,85816199,0.00557,783562,"Turkey","TUR","TR",792,"Asia","Western Asia, The Middle East",783562,109.5206,283.6584,18,"Affiliate","as Careem",15
+800,48582334,0.02821,241550,"Uganda","UGA","UG",800,"Africa","Eastern Africa, Sub-Saharan Africa",200520,242.2817,627.5097,30,"Yes",,27
+804,36744634,-0.07448,603500,"Ukraine","UKR","UA",804,"Europe","Eastern Europe",579400,63.4184,164.2537,41,"Yes",,36
+784,9516871,0.00802,83600,"United Arab Emirates","ARE","AE",784,"Asia","Western Asia, The Middle East",71020,134.0027,347.067,96,"Affiliate","as Careem",62
+826,67736802,0.00338,242900,"United Kingdom","GBR","GB",826,"Europe","Northern Europe",241930,279.9851,725.1615,21,"Yes",,18
+840,339996563,0.00505,9372610,"United States","USA","US",840,"North America","Northern America",9147420,37.1686,96.2666,3,"Yes",,3
+858,3423108,0.00009,181034,"Uruguay","URY","UY",858,"South America","South America, Latin America",175020,19.5584,50.6562,135,"Yes",,85
+704,98858950,0.00685,331212,"Vietnam","VNM","VN",704,"Asia","South-Eastern Asia",313429,315.411,816.9145,16,"Partner","with Grab",14
