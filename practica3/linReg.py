@@ -23,11 +23,11 @@ class LinRegClassifier:
             print("")
 
     def dmse(self, coefnum:int) -> float:
-        pool = Pool()
-
-        # func = lambda x: np.append(x[:-1], 1)[coefnum] * (self.predict(x[:-1]) - x[-1])
-
-        difs = np.array(pool.map(partial(self.func, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=int(self.n / (multiprocessing.cpu_count() * 2))))
+        pool = Pool(processes=multiprocessing.cpu_count())
+        csize, extra = divmod(self.n, multiprocessing.cpu_count())
+        csize += extra and 1
+        difs = np.array(list(pool.imap(partial(self.func, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=csize))) # self.n // multiprocessing.cpu_count()
+        pool.close()
         # difs = np.apply_along_axis(lambda x: np.append(x[:-1], 1)[coefnum] * (self.predict(x[:-1]) - x[-1]), 1, np.concatenate((self.xTrain, self.yTrain), axis=1))
         coefVar = -2 * np.sum(difs) / self.n
         return coefVar
