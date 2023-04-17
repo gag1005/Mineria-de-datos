@@ -11,19 +11,23 @@ class LinRegClassifier:
         self.xTrain = xTrain.to_numpy()
         self.yTrain = yTrain.to_numpy()
         # print(self.xTrain)
-        # print([random.randrange(np.min(self.xTrain[x]), np.max(self.xTrain[x])) for x in range(xTrain.shape[1] + 1)])
-        # self.coefs = np.array([np.float64(random.randrange(int(np.min(self.xTrain[x])), int(np.max(self.xTrain[x])))) for x in range(self.xTrain.shape[1] + 1)])
+        # print((np.min(self.xTrain[0]), np.max(self.xTrain[0])))
+        # print([random.randrange(0, 1) for x in range(self.xTrain.shape[1] + 1)])
+        self.coefs = np.array([np.float64(random.randrange(0, 1)) for x in range(self.xTrain.shape[1] + 1)])
         # self.coefs = np.array([np.float64(random.randrange(int(np.min(self.xTrain[x])), int(np.max(self.xTrain[x]))))) for x in range(self.xTrain.shape[1] + 1)])
         
-        self.coefs = np.zeros(self.xTrain.shape[1] + 1) + 1
+        # self.coefs = np.zeros(self.xTrain.shape[1] + 1) + 1
         
         self.numIter = numIter
         self.lRate = lRate
         self.n = xTrain.shape[0]
         self.d:list= []
 
+
     def train(self):
         for i in range(self.numIter):
+        # coefVars = [-1 for i in self.coefs]
+        # while(-1 * np.max(coefVars) > (10**(-10))):
             # coefVars = np.array([self.dmse(x) for x in range(self.coefs.size)])
             nums = np.array([np.arange(self.coefs.size)])
             coefVars = np.apply_along_axis(self.dmse, 0, nums)
@@ -43,13 +47,14 @@ class LinRegClassifier:
 
     
     def difs(self, coefnum: int):
-        # pool = Pool(processes=multiprocessing.cpu_count())
-        # csize, extra = divmod(self.n, multiprocessing.cpu_count())
-        # csize += not not extra
-        # difs = np.array(list(pool.imap(partial(self.dmseFunc, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=csize)))
-        # pool.close()
+        pool = Pool(processes=multiprocessing.cpu_count())
+        csize = 1
+        csize, extra = divmod(self.n, multiprocessing.cpu_count())
+        csize += not not extra
+        difs = np.array(list(pool.imap(partial(self.dmseFunc, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=csize)))
+        pool.close()
         # print(np.concatenate((self.xTrain, self.yTrain), axis=1))
-        difs = np.apply_along_axis(lambda x: self.dmseFunc(coefnum, x), 1, np.concatenate((self.xTrain, self.yTrain), axis=1))
+        # difs = np.apply_along_axis(lambda x: self.dmseFunc(coefnum, x), 1, np.concatenate((self.xTrain, self.yTrain), axis=1))
 
         return difs
     
