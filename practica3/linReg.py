@@ -4,6 +4,7 @@ from multiprocessing import Pool
 import multiprocessing
 from functools import partial
 import random
+import time
 
 class LinRegClassifier:
 
@@ -34,19 +35,21 @@ class LinRegClassifier:
             nums = np.array([np.arange(self.coefs.size)])
             coefVars = np.apply_along_axis(self.dmse, 0, nums, pool)
             self.coefs -= self.lRate * coefVars
-
             msevars = np.apply_along_axis(self.mse, 0, nums)
             maxMSE = np.max(msevars)
             self.mseHistory[i] = maxMSE
-
             print("Iter: " + str(it) + " max MSE: " + str(maxMSE))
             it += 1
         pool.close()
 
 
     def dmse(self, coefnum:int, pool) -> float:
+        start = time.time()
+        print("1: " + str(time.time() - start))
         difs = self.difs(coefnum, pool)
+        print("2: " + str(time.time() - start))
         coefVar = np.sum(difs) / self.n
+        print("3: " + str(time.time() - start))
         # if coefnum == 1:
             # self.d.append(coefVar)
         return coefVar
@@ -59,7 +62,6 @@ class LinRegClassifier:
         csize, extra = divmod(self.n, multiprocessing.cpu_count())
         csize += not not extra
         difs = np.array(list(pool.map(partial(self.dmseFunc, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=csize)))
-        # pool.close()
         # difs = np.apply_along_axis(lambda x: self.dmseFunc(coefnum, x), 1, np.concatenate((self.xTrain, self.yTrain), axis=1))
 
         return difs
