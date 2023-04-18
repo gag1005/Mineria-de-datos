@@ -18,15 +18,19 @@ def coordsToDistance(long1: float, lat1: float, long2: float, lat2: float):
     return d
 
 def transformDataframeCoordsIntoDistance(df: pd.DataFrame, cols: list[str], newColName: str):
+    df2 = df.copy()
     # ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude', 'dropoff_latitude']
-    coords:np.ndarray = df[cols].to_numpy()
+    coords:np.ndarray = df2[cols].to_numpy()
     distances = np.apply_along_axis(lambda x: coordsToDistance(x[0], x[1], x[2], x[3]), 1, coords)
-    df.insert(2, newColName, pd.Series(distances))
+    df2.insert(2, newColName, distances)
+    return df2
 
 def transformDates(df: pd.DataFrame):
-    df['pickup_timestamp'] = df['pickup_datetime'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d %H:%M:%S UTC'))
-    df['pickup_hour'] = df['pickup_timestamp'].apply(lambda x: x.hour)
-    df.drop('pickup_datetime', axis=1, inplace=True)
-    df.drop('pickup_timestamp', axis=1, inplace=True)
+    df2 = df.copy()
+    df2['pickup_timestamp'] = df2['pickup_datetime'].apply(lambda x: datetime.strptime(x, '%Y-%m-%d %H:%M:%S UTC'))
+    df2['pickup_hour'] = df2['pickup_timestamp'].apply(lambda x: x.hour)
+    df2.drop('pickup_datetime', axis=1, inplace=True)
+    df2.drop('pickup_timestamp', axis=1, inplace=True)
+    return df2
 
 
