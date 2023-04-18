@@ -24,6 +24,13 @@ class LinRegClassifier:
         self.n = xTrain.shape[0]
         self.mseHistory: np.ndarray = np.empty(self.numIter)
 
+        self.csize = 1
+        self.csize, self.extra = divmod(self.n, multiprocessing.cpu_count())
+        self.csize += not not self.extra
+        
+
+        self.csize
+
 
 
     def train(self):
@@ -35,8 +42,8 @@ class LinRegClassifier:
             nums = np.array([np.arange(self.coefs.size)])
             coefVars = np.apply_along_axis(self.dmse, 0, nums, pool)
             self.coefs -= self.lRate * coefVars
-            msevars = np.apply_along_axis(self.mse, 0, nums)
-            maxMSE = np.max(msevars)
+            # msevars = np.apply_along_axis(self.mse, 0, nums)
+            # maxMSE = np.max(msevars)
             self.mseHistory[i] = maxMSE
             print("Iter: " + str(it) + " max MSE: " + str(maxMSE))
             it += 1
@@ -47,6 +54,7 @@ class LinRegClassifier:
         start = time.time()
         print("1: " + str(time.time() - start))
         difs = self.difs(coefnum, pool)
+        print(difs)
         print("2: " + str(time.time() - start))
         coefVar = np.sum(difs) / self.n
         print("3: " + str(time.time() - start))
@@ -58,10 +66,10 @@ class LinRegClassifier:
     def difs(self, coefnum: int, pool):
         # pool = Pool(processes=multiprocessing.cpu_count())
         
-        csize = 1
-        csize, extra = divmod(self.n, multiprocessing.cpu_count())
-        csize += not not extra
-        difs = np.array(list(pool.map(partial(self.dmseFunc, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=csize)))
+        # csize = 1
+        # csize, extra = divmod(self.n, multiprocessing.cpu_count())
+        # csize += not not extra
+        difs = np.array(list(pool.map(partial(self.dmseFunc, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=self.csize))).transpose()
         # difs = np.apply_along_axis(lambda x: self.dmseFunc(coefnum, x), 1, np.concatenate((self.xTrain, self.yTrain), axis=1))
 
         return difs
