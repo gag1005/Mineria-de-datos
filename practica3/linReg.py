@@ -22,7 +22,7 @@ class LinRegClassifier:
         self.numIter = numIter
         self.lRate = lRate
         self.n = xTrain.shape[0]
-        self.mseHistory: np.ndarray = np.empty(self.numIter)
+        self.mseHistory: np.ndarray = np.zeros(self.numIter)
 
         self.csize = 1
         self.csize, self.extra = divmod(self.n, multiprocessing.cpu_count())
@@ -33,19 +33,20 @@ class LinRegClassifier:
 
 
 
-    def train(self):
+    def train(self, calculateMSE=False):
         it = 0
         maxMSE = 1
         
         pool = Pool(processes=multiprocessing.cpu_count())
+        nums = np.array([np.arange(self.coefs.size)])
         for i in range(self.numIter):
-            nums = np.array([np.arange(self.coefs.size)])
             coefVars = np.apply_along_axis(self.dmse, 0, nums, pool)
             self.coefs -= self.lRate * coefVars
-            # msevars = np.apply_along_axis(self.mse, 0, nums)
-            # maxMSE = np.max(msevars)
-            self.mseHistory[i] = maxMSE
-            print("Iter: " + str(it) + " max MSE: " + str(maxMSE))
+            if calculateMSE:
+                msevars = np.apply_along_axis(self.mse, 0, nums)
+                maxMSE = np.max(msevars)
+                self.mseHistory[i] = maxMSE
+            print("Iter: " + str(it) + (" max MSE: " + str(maxMSE) if calculateMSE else ""))
             it += 1
         pool.close()
 
@@ -54,41 +55,26 @@ class LinRegClassifier:
         start = time.time()
         print("1: " + str(time.time() - start))
         difs = self.difs(coefnum, pool)
-        print(difs)
         print("2: " + str(time.time() - start))
-        coefVar = np.sum(difs) / self.n
+        coefVar = np.divide(np.sum(difs), self.n)
         print("3: " + str(time.time() - start))
-        # if coefnum == 1:
-            # self.d.append(coefVar)
         return coefVar
 
     
     def difs(self, coefnum: int, pool):
-        # pool = Pool(processes=multiprocessing.cpu_count())
-        
-        # csize = 1
-        # csize, extra = divmod(self.n, multiprocessing.cpu_count())
-        # csize += not not extra
         difs = np.array(list(pool.map(partial(self.dmseFunc, coefnum), np.concatenate((self.xTrain, self.yTrain), axis=1), chunksize=self.csize))).transpose()
         # difs = np.apply_along_axis(lambda x: self.dmseFunc(coefnum, x), 1, np.concatenate((self.xTrain, self.yTrain), axis=1))
-
         return difs
     
     def predict(self, point:np.ndarray) -> float:
         return np.sum(self.coefs[:-1] * point) + self.coefs[-1]
 
     def dmseFunc(self, coefnum, x):
-        # print("-> " + str(np.append(x[:-1], 1)[coefnum]))
         return np.append(x[:-1], 1)[coefnum] * (self.predict(x[:-1]) - x[-1])
-
-    def predict2d(self, value, coefnum):
-        return self.coefs[coefnum] * value + self.coefs[-1]
     
     def mse(self, coefnum:int) -> float:
         difs = self.difsmse(coefnum)
         coefVar = np.sum(difs) / self.n
-        # if coefnum == 1:
-        #     self.d.append(coefVar)
         return coefVar
 
     def difsmse(self, coefnum: int):
