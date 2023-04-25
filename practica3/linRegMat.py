@@ -21,7 +21,7 @@ class LinRegClassifier:
 
     def train(self) -> None:
         it = 0
-        mse = 1
+        mse = 999999999999999
         while(mse > self.maxMSE and it < self.maxIter):
             vMSE = self.dmse()
             self.coefs -= self.lRate * vMSE
