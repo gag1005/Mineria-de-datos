@@ -1,0 +1,22 @@
+Elección de modelo
+- variables respuesta
+- N Variables predictoras
+
+Cálculo de los parámetros
+- Mencionar el criterio de ajuste (mínimos cuadrados)
+- Coeficiente de determinación
+
+Validación del modelo
+- 
+
+Incertidumbre en las estimaciones 
+-
+
+Interpretación
+
+
+
+
+Pintar resíduos
+
+poner comentario sobre eliminar outlayers

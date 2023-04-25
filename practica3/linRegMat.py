@@ -19,13 +19,13 @@ class LinRegClassifier:
         self.mseHistory: list = []
         self.maxMSE = maxMSE
 
-    def train(self, calculateMSE=False) -> None:
+    def train(self) -> None:
         it = 0
         mse = 1
         while(mse > self.maxMSE and it < self.maxIter):
             vMSE = self.dmse()
             self.coefs -= self.lRate * vMSE
-            if calculateMSE: self.mseHistory.append(mse := self.mse())
+            self.mseHistory.append(mse := self.mse())
             it += 1
         print("Number of iterations: " + str(it))
         print("Coeficientes finales: " + str(self.coefs.transpose()[0]))
@@ -40,3 +40,5 @@ class LinRegClassifier:
     def mse(self) -> np.ndarray:
         return (1/self.n) * np.sum(np.square(self.predictions(self.xTrain) - self.yTrain))
     
+    def score(self, x: np.ndarray, y: np.ndarray) -> float:
+        return np.sum(np.square(x - y))
