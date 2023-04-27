@@ -27,7 +27,7 @@ class LinRegClassifier:
             self.coefs -= self.lRate * vMSE
             self.mseHistory.append(mse := self.mse())
             it += 1
-        print("Number of iterations: " + str(it))
+        print("Número de iteraciones: " + str(it))
         print("Coeficientes finales: " + str(self.coefs.transpose()[0]))
         print("MSE final: " + str(self.mse()))
 
@@ -39,6 +39,4 @@ class LinRegClassifier:
 
     def mse(self) -> np.ndarray:
         return (1/self.n) * np.sum(np.square(self.predictions(self.xTrain) - self.yTrain))
-    
-    def score(self, x: np.ndarray, y: np.ndarray) -> float:
-        return np.sum(np.square(x - y))
+
