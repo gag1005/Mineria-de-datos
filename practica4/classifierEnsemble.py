@@ -1,6 +1,7 @@
 import pandas as pd
+from sklearn.base import ClassifierMixin
 
-class Ensemlbe:
+class ClassifierEnsemble(ClassifierMixin):
     def __init__(self) -> None:
         pass
 
