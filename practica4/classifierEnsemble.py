@@ -15,6 +15,8 @@ class ClassifierEnsemble(ClassifierMixin):
         self.n = yy.size
         self.splitData(xx, yy)
 
+        # for c, d in zip(self.classifierList, self.splits): c[1].fit(d)
+
     def predict(self):
         pass
 
