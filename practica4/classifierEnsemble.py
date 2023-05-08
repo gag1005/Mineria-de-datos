@@ -19,6 +19,10 @@ class ClassifierEnsemble(ClassifierMixin):
             c[1].fit(d[0], d[1])
         # for c, d in zip(self.classifierList, self.splits): c[1].fit(d)
 
+    def fit(self, data: pd.DataFrame):
+        labeled = data.isna()
+
+
     def predict(self):
         pass
 
